@@ -1,0 +1,22 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: tstdeployment 
+spec: 
+  selector: 
+    matchLabels: 
+      app: tst 
+  replicas: 1 # tells deployment to run 2 pods matching the template 
+  template: 
+    metadata: 
+      labels: 
+        app: tst 
+    spec: 
+      containers: 
+      - name: nginxname
+        #image: houssemdocker/angular-app:v1 
+        image: nginx
+        imagePullPolicy: Never
+        ports: 
+        - containerPort: 80 
+        - containerPort: 443 

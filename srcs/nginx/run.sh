@@ -6,4 +6,7 @@ mv /default.conf /etc/nginx/conf.d/
 rc-status
 #echo "daemon off;" >> /etc/nginx/nginx.conf
 rc-service nginx start
-/bin/sh
+while true
+do 
+sleep 1;
+done
