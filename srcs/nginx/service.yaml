@@ -3,13 +3,10 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
-  name: tstservice 
+  name: nginx 
 spec: 
   selector: 
-    app: tst 
-  #replicas: 1 # tells deployment to run 2 pods matching the template 
-
-        #image: houssemdocker/angular-app:v1 
+    app: nginx 
   ports:
     - port: 80
       name: http
