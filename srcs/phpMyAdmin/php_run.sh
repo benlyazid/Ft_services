@@ -1,6 +1,8 @@
 apk update
 apk add nginx
 apk add openrc
+apk add php-session
+apk add vim
 rm /etc/nginx/conf.d/default.conf
 mv /default.conf /etc/nginx/conf.d/
 mkdir -p /usr/share/webapps/
@@ -14,5 +16,6 @@ ln -s /usr/share/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
 mkdir /run/openrc/
 touch /run/openrc/softlevel
 rc-status
+rc-service php-fpm7 start
 rc-service nginx restart
 /bin/sh
