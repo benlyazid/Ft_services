@@ -1,7 +1,7 @@
 minikube start
-eval $(docker-machine env) 
 docker-machine env
 docker-machine start
+eval $(docker-machine env) 
 eval $(minikube docker-env)
 #docker build -t nginx srcs/nginx/.
 #docker build -t  mysql srcs/mysql/.
