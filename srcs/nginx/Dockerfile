@@ -7,7 +7,7 @@ COPY ./*.crt /
 COPY ./*.key /
 COPY ./default.conf /
 RUN chmod 777 /run.sh
-ENTRYPOINT ./run.sh
+CMD ./run.sh
 EXPOSE 80
 EXPOSE 443
 #*.local, 169.254/16
