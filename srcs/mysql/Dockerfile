@@ -1,6 +1,7 @@
 FROM alpine:latest
 RUN apk update
 COPY ./run.sh /
+COPY ./*.sql /
 COPY ./mariadb-server.cnf /
 RUN chmod 777 /run.sh
 RUN apk add openrc

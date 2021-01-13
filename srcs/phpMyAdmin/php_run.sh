@@ -6,6 +6,9 @@ cd /usr/share
 chmod -R 777 /usr/share/webapps/
 chmod -R 644 /usr/share/webapps/phpmyadmin/config.inc.php 
 ln -s /usr/share/webapps/phpmyadmin/ /var/www/localhost/htdocs/phpmyadmin
+
+rm /usr/share/webapps/phpmyadmin/config.inc.php
+mv /config.inc.php /usr/share/webapps/phpmyadmin
 mkdir /run/openrc/
 touch /run/openrc/softlevel
 rc-status
