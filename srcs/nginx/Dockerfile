@@ -10,4 +10,3 @@ RUN chmod 777 /run.sh
 CMD ./run.sh
 EXPOSE 80
 EXPOSE 443
-#*.local, 169.254/16
