@@ -1,5 +1,5 @@
-#minikube start
-#eval $(minikube docker-env)
+minikube start
+eval $(minikube docker-env)
 
 docker build -t nginx srcs/nginx/.
 docker build -t  mysql srcs/mysql/.

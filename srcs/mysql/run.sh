@@ -7,6 +7,7 @@ mv /mariadb-server.cnf /etc/my.cnf.d/mariadb-server/
 rc-service mariadb start
 mysql --user=root </user.sql
 mysql -uroot phpmyadmin < /phpmyadmin.sql
+mysql -uroot phpmyadmin < /wordpress.sql
 
 while true
 do 
