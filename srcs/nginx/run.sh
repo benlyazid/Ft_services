@@ -1,5 +1,6 @@
 #!/bin/sh
 mkdir /run/openrc
+
 touch /run/openrc/softlevel
 rm /etc/nginx/conf.d/default.conf
 mv /default.conf /etc/nginx/conf.d/
@@ -10,3 +11,4 @@ while true
 do 
 sleep 1;
 done
+ls

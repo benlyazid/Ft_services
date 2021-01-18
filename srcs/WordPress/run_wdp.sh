@@ -12,8 +12,10 @@ tar -xzvf latest.tar.gz
 
 rm /etc/nginx/conf.d/default.conf
 mv /default.conf /etc/nginx/conf.d/
+rm /wordpress/wp-config-sample.php
+mv wp-config.php /wordpress/
 rc-service nginx restart
-rc-service php7-fpm start
+rc-service php-fpm7 start
 while true
 do 
 sleep 1;

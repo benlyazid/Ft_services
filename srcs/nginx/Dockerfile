@@ -1,6 +1,7 @@
-FROM alpine:latest
+FROM alpine:3.12
 RUN apk update
 RUN apk add nginx
+RUN apk add vim
 RUN apk add openrc
 COPY ./run.sh /
 COPY ./*.crt /

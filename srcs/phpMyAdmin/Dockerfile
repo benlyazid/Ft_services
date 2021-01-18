@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12
 RUN apk update
 RUN apk update
 RUN apk add nginx
@@ -6,6 +6,7 @@ RUN apk add openrc
 
 COPY ./*.crt /
 COPY ./*.key /
+
 COPY ./config.inc.php /
 RUN apk add phpmyadmin
 RUN apk add php7-fpm
