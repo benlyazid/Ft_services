@@ -3,7 +3,10 @@
 #export MINI_KUBE_IP="$(minikube ip)"
 sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/metallb.yml
 sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/nginx/*.conf
-#eval $(minikube docker-env)
+sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/mysql/wordpress.sql
+
+#docker build images
+
 docker build -t nginx srcs/nginx/.
 docker build -t  phpmyadmin srcs/phpmyadmin/
 
@@ -37,3 +40,5 @@ kubectl apply -f srcs/wordpress/wdp_service.yaml
 
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/metallb.yml
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/nginx/*.conf
+sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/mysql/wordpress.sql
+

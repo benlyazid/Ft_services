@@ -21,7 +21,7 @@ server {
                         proxy_pass https://192.168.99.106:5000/;
                 }
 				
-                 location /wordpress {
-                        return 301 https://$192.168.99.106:5050;
+                 location /c {
+                        return 301 https://192.168.99.106:5050;
                 }                
 }
