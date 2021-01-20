@@ -42,3 +42,5 @@ sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/metallb.yml
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/nginx/*.conf
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/mysql/wordpress.sql
 
+ssh-keygen -R $MINI_KUBE_IP 
+ #ssh-keygen -R 192.168.99.106
