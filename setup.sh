@@ -1,6 +1,8 @@
 #minikube start
-#eval $(minikube docker-env)
-#export MINI_KUBE_IP="$(minikube ip)"
+minikube docker-env
+eval $(minikube docker-env)
+export MINI_KUBE_IP="$(minikube ip)"
+
 sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/metallb.yml
 sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/nginx/*.conf
 sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/mysql/wordpress.sql
@@ -9,10 +11,10 @@ sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/mysql/wordpress.sql
 
 docker build -t nginx srcs/nginx/.
 docker build -t  phpmyadmin srcs/phpmyadmin/
-
 docker build -t  mysql srcs/mysql/.
 docker build -t wordpress srcs/WordPress/
-
+docker build -t  grafana srcs/grafana/.
+docker build -t influxdb srcs/influxdb
 #metalLb
 
 kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.9.3/manifests/namespace.yaml
@@ -35,6 +37,10 @@ kubectl apply -f srcs/phpMyAdmin/php_service.yaml
 kubectl apply -f srcs/wordpress/wdp_deployment.yaml 
 kubectl apply -f srcs/wordpress/wdp_service.yaml 
 
+kubectl apply -f srcs/grafana/deployment.yaml 
+kubectl apply -f srcs/grafana/service.yaml   
+
+kubectl apply -f srcs/influxdb/deployment.yaml 
 ##docker rm -fv $(docker ps -aq)\n
 #minikube delete
 
