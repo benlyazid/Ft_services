@@ -1,4 +1,4 @@
-#minikube start
+minikube start
 minikube docker-env
 eval $(minikube docker-env)
 export MINI_KUBE_IP="$(minikube ip)"
@@ -41,6 +41,7 @@ kubectl apply -f srcs/grafana/deployment.yaml
 kubectl apply -f srcs/grafana/service.yaml   
 
 kubectl apply -f srcs/influxdb/deployment.yaml 
+kubectl apply -f srcs/influxdb/service_influxdb.yaml
 ##docker rm -fv $(docker ps -aq)\n
 #minikube delete
 
