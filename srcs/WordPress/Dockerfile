@@ -6,7 +6,7 @@ COPY ./run_wdp.sh /
 COPY ./*.crt /
 COPY ./*.key /
 COPY ./*.php /
-COPY ./default.conf /
+COPY ./*.conf /
 RUN chmod 777 /run_wdp.sh
 ENTRYPOINT ./run_wdp.sh
 EXPOSE 5050

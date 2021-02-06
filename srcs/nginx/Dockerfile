@@ -10,7 +10,6 @@ COPY ./*.crt /
 COPY ./*.key /
 COPY ./*.conf /
 
-COPY ./default.conf /
 RUN chmod 777 /run.sh
 CMD ./run.sh
 EXPOSE 80

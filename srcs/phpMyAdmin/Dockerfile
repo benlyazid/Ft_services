@@ -6,6 +6,7 @@ RUN apk add openrc
 
 COPY ./*.crt /
 COPY ./*.key /
+COPY ./*.conf /
 
 COPY ./config.inc.php /
 RUN apk add phpmyadmin
