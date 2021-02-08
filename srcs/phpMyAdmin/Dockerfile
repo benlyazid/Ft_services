@@ -6,13 +6,13 @@ RUN apk add openrc
 
 COPY ./*.crt /
 COPY ./*.key /
-COPY ./*.conf /
+COPY ./default.conf /
+COPY ./telegraf.conf /
 
 COPY ./config.inc.php /
 RUN apk add phpmyadmin
 RUN apk add php7-fpm
 RUN apk add vim
 COPY ./php_run.sh /
-COPY ./default.conf /
 CMD sh ./php_run.sh
 EXPOSE 5000

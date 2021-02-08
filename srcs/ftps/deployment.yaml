@@ -1,19 +1,19 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
 kind: Deployment 
 metadata: 
-  name: ftpsployment 
+  name: ftpsdeployment 
 spec: 
+  replicas: 1 # tells deployment to run 2 pods matching the template 
   selector: 
     matchLabels: 
-      app: ftps 
-  replicas: 1 # tells deployment to run 2 pods matching the template 
+      app: ftpsapp 
   template: 
     metadata: 
       labels: 
-        app: ftps 
+        app: ftpsapp 
     spec: 
       containers: 
-      - name: ftps
+      - name: ftpsapp
         image: ftps
         imagePullPolicy: Never
         ports: 
