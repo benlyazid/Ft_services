@@ -7,7 +7,7 @@ mv /mariadb-server.cnf /etc/my.cnf.d/mariadb-server/
 rc-service mariadb start
 mysql --user=root </user.sql
 mysql -uroot phpmyadmin < /phpmyadmin.sql
-mysql -uroot phpmyadmin < /wordpress.sql
+mysql -uroot wordpress < /wordpress.sql
 
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.17.0_linux_amd64.tar.gz
 tar -zxvf telegraf-1.17.0_linux_amd64.tar.gz 
