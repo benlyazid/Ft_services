@@ -1,0 +1,41 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: influxdbdeployment 
+spec:
+  replicas: 1 # tells deployment to run 2 pods matching the template  
+  selector: 
+    matchLabels: 
+      app: influxdb
+  template: 
+    metadata: 
+      labels: 
+        app: influxdb
+    spec: 
+      containers: 
+      - name: influxdb
+        image: influxdb
+        imagePullPolicy: Never
+        ports: 
+        - containerPort: 8086 
+      
+        volumeMounts:
+          - name:  pv-influx
+            mountPath: /var/lib/influxdb
+      volumes:
+        - name:  pv-influx
+          persistentVolumeClaim:
+            claimName:  pv-influx
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: influxdb 
+spec: 
+  selector: 
+    app: influxdb
+  type: ClusterIP
+  clusterIP: 10.97.118.16
+  ports:
+   - port: 8086
+     targetPort: 8086

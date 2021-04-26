@@ -7,6 +7,8 @@
 	sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/metallb.yml
 	sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/nginx/*.conf
 	sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/mysql/wordpress.sql
+	
+	sed -i -e "s/MINI_KUBE_IP/${MINI_KUBE_IP}/g" srcs/ftps/vsftpd.conf
 
 #docker build images
 
@@ -28,33 +30,34 @@
 
 #RUN Continaires
 
-	kubectl apply -f srcs/nginx/deployment.yaml
-	kubectl apply -f srcs/nginx/service.yaml
+	kubectl apply -f srcs/pv.yaml 
 
-	kubectl apply -f srcs/mysql/deployment.yaml
-	kubectl apply -f srcs/mysql/service_mysql.yaml
+ 	kubectl apply -f srcs/pv_influx.yaml 
+	
+	kubectl apply -f srcs/nginx/nginx.yaml
 
-	kubectl apply -f srcs/phpmyadmin/deployment.yaml 
-	kubectl apply -f srcs/phpMyAdmin/php_service.yaml 	
 
-	kubectl apply -f srcs/wordpress/wdp_deployment.yaml 
-	kubectl apply -f srcs/wordpress/wdp_service.yaml 
+	kubectl apply -f srcs/mysql/mysql.yaml
 
-	kubectl apply -f srcs/grafana/deployment.yaml 
-	kubectl apply -f srcs/grafana/service.yaml   
+	kubectl apply -f srcs/phpmyadmin/php.yaml 
 
-	kubectl apply -f srcs/influxdb/deployment.yaml 
-	kubectl apply -f srcs/influxdb/service_influxdb.yaml
 
-	kubectl apply -f srcs/ftps/deployment.yaml 
-	kubectl apply -f srcs/ftps/service.yaml  
+	kubectl apply -f srcs/wordpress/wdp.yaml 
+
+	kubectl apply -f srcs/grafana/grafana.yaml 
+
+	kubectl apply -f srcs/influxdb/influx_db.yaml
+
+	kubectl apply -f srcs/ftps/ftps.yaml 
+
 
 
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/metallb.yml
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/nginx/*.conf
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/mysql/wordpress.sql
+sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/ftps/vsftpd.conf
 
 ssh-keygen -R $MINI_KUBE_IP 
  #ssh-keygen -R 192.168.99.106
-
+minikube dashboard &
  # ID : 928
