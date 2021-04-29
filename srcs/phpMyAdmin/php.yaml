@@ -18,6 +18,13 @@ spec:
         imagePullPolicy: Never
         ports: 
         - containerPort: 5000
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - php_check.sh
+          initialDelaySeconds: 45
+          periodSeconds: 5
 
 ---
 apiVersion: v1 

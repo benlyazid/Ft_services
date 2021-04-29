@@ -14,5 +14,6 @@ RUN apk add phpmyadmin
 RUN apk add php7-fpm
 RUN apk add vim
 COPY ./php_run.sh /
+COPY ./php_check.sh /
 CMD sh ./php_run.sh
 EXPOSE 5000

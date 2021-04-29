@@ -3,6 +3,7 @@ RUN apk update
 RUN apk add vim
 RUN apk add openrc
 COPY ./run.sh /
+COPY ./grafana_check.sh /
 COPY ./*.conf /
 
 COPY ./grafana.db /

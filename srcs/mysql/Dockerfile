@@ -1,6 +1,7 @@
 FROM alpine:3.12
 RUN apk update
 COPY ./run.sh /
+COPY ./mysql_check.sh /
 COPY ./*.sql /
 COPY ./*.conf /
 

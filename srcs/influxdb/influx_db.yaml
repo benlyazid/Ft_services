@@ -17,7 +17,14 @@ spec:
         image: influxdb
         imagePullPolicy: Never
         ports: 
-        - containerPort: 8086 
+        - containerPort: 8086
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - influxdb_check.sh
+          initialDelaySeconds: 45
+          periodSeconds: 5
       
         volumeMounts:
           - name:  pv-influx

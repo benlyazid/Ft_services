@@ -1,6 +1,7 @@
 FROM alpine:3.12
 RUN apk update
 COPY ./run.sh /
+COPY ./influxdb_check.sh /
 RUN apk add openrc
 COPY ./*.conf /
 

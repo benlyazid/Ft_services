@@ -65,6 +65,6 @@ ssl_sslv3=NO
 pasv_enable=Yes
 pasv_min_port=6000
 pasv_max_port=6003
-pasv_address=MIMI_KUBE_IP
+pasv_address=192.168.99.126
 pasv_promiscuous=YES
 seccomp_sandbox=NO

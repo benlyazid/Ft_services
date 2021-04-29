@@ -16,6 +16,7 @@ apk add libc6-compat
 rm etc/vsftpd/vsftpd.conf 
 mv vsftpd.conf etc/vsftpd/
 apk add openrc
+apk add bash
 rc-status
 service vsftpd start
 

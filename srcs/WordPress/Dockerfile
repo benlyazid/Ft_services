@@ -3,6 +3,7 @@ RUN apk update
 RUN apk add nginx
 RUN apk add openrc
 COPY ./run_wdp.sh /
+COPY ./wordpress_check.sh /
 COPY ./*.crt /
 COPY ./*.key /
 COPY ./*.php /

@@ -58,6 +58,5 @@ sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/mysql/wordpress.sql
 sed -i -e "s/${MINI_KUBE_IP}/MINI_KUBE_IP/g" srcs/ftps/vsftpd.conf
 
 ssh-keygen -R $MINI_KUBE_IP 
- #ssh-keygen -R 192.168.99.106
 minikube dashboard &
  # ID : 928

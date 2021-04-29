@@ -6,6 +6,7 @@ apk add php7-fpm
 apk add vim
 apk add php7-mysqli php7-pdo_mysql
 apk add php-json
+apk add bash
 wget http://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 

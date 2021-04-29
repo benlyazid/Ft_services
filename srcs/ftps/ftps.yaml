@@ -22,6 +22,13 @@ spec:
         - containerPort: 6001
         - containerPort: 6002
         - containerPort: 6003
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - ftps_check.sh
+          initialDelaySeconds: 45
+          periodSeconds: 5
 
 ---
 
